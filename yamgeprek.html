@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jagoan Ayam Geprek Dramaga</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* HEADER - FIXED */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #ff6b35 !important;
+            color: white;
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: white !important;
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: #ffd700;
+            margin-right: 10px;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff6b35 100%) !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .cta-button {
+            background: #ffd700;
+            color: #333;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(255,215,0,0.4);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255,215,0,0.6);
+        }
+
+        /* INFO SECTION */
+        .info-section {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+        }
+
+        .info-card i {
+            font-size: 50px;
+            color: #ff6b35;
+            margin-bottom: 20px;
+        }
+
+        .info-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        /* MENU SECTION - UPDATED */
+        .menu-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 60px;
+        }
+
+        .promo-price {
+            color: #ff6b35;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            border-radius: 15px;
+            border: 3px dashed #ff6b35;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+            text-align: center;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+        }
+
+        .menu-img {
+            height: 180px;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            position: relative;
+            padding: 20px;
+        }
+
+        .menu-img i {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .menu-content {
+            padding: 25px;
+        }
+
+        .menu-content h3 {
+            color: #ff6b35;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #28a745;
+            margin: 15px 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .price-tag {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 700;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(40,167,69,0.4);
+        }
+
+        /* CONTACT SECTION */
+        .contact-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .contact-info h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            margin-right: 20px;
+            width: 40px;
+            color: #ffd700;
+        }
+
+        .btn-group {
+            margin-top: 30px;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            padding: 18px 30px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+        }
+
+        .tel-btn {
+            background: #007bff;
+            color: white;
+            padding: 18px 30px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,123,255,0.4);
+        }
+
+        .whatsapp-btn:hover, .tel-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #2c2c2c;
+            color: #ccc;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        /* FLOATING WA */
+        .floating-wa {
+            position: fixed;
+            width: 65px;
+            height: 65px;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            font-size: 30px;
+            box-shadow: 0 8px 25px rgba(37,211,102,0.4);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .floating-wa:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 8px 25px rgba(37,211,102,0.4); }
+            50% { box-shadow: 0 8px 35px rgba(37,211,102,0.7); }
+            100% { box-shadow: 0 8px 25px rgba(37,211,102,0.4); }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero {
+                margin-top: 70px;
+                padding: 20px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+
+            .btn-group {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .whatsapp-btn, .tel-btn {
+                margin: 0 !important;
+                justify-content: center;
+            }
+
+            .menu-grid, .info-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .promo-price {
+                margin: 20px 0 30px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">
+                <i class="fas fa-fire"></i> Jagoan Ayam Geprek Dramaga
+            </a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>🌶️ JAGOAN AYAM GEPREK DRAMAGA 🌶️</h1>
+            <p>Ayam Geprek Terpedas & Terlezat di Bogor! Harga Mulai Rp 10.000!</p>
+            <a href="#contact" class="cta-button">📱 PESAN SEKARANG</a>
+        </div>
+    </section>
+
+    <!-- INFO -->
+    <section class="info-section">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>⏰ Jam Buka</h3>
+                    <p><strong>06:00 - 21:00</strong><br>SETIAP HARI</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>📍 Lokasi</h3>
+                    <p>CPCJ+XQQ, JI. Randu Sari<br><strong>Sinar Sari, Dramaga, Bogor 16680</strong></p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>📞 Kontak</h3>
+                    <p><strong>0878-7028-6781</strong><br>Telp / WhatsApp</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU - FULLY UPDATED -->
+    <section class="menu-section">
+        <div class="container">
+            <h2 class="section-title">🍗 SEMUA MENU Rp 10.000</h2>
+            <div class="promo-price">
+                <i class="fas fa-tags" style="color: #ff6b35; font-size: 2rem;"></i>
+                <strong>PROMO TERBATAS! SEMUA Varian Geprek HANYA Rp 10.000!</strong>
+            </div>
+            
+            <div class="menu-grid">
+                <!-- ORIGINAL -->
+                <div class="menu-item">
+                    <div class="menu-img">
+                        <i class="fas fa-pepper-hot"></i>
+                        SAMBAL ORIGINAL
+                    </div>
+                    <div class="menu-content">
+                        <h3>Geprek Sambal Original</h3>
+                        <div class="price"><span class="price-tag">Rp 10.000</span></div>
+                        <p>Sambal matah original, ayam crispy, nasi & lalapan</p>
+                    </div>
+                </div>
+
+                <!-- TERASI -->
+                <div class="menu-item">
+                    <div class="menu-img" style="background: linear-gradient(45deg, #ff4757, #ff6b9d);">
+                        <i class="fas fa-fish"></i>
+                        SAMBAL TERASI
+                    </div>
+                    <div class="menu-content">
+                        <h3>Geprek Sambal Terasi</h3>
+                        <div class="price"><span class="price-tag">Rp 10.000</span></div>
+                        <p>Sambal terasi nampol + ayam geprek crispy</p>
+                    </div>
+                </div>
+
+                <!-- KIDS -->
+                <div class="menu-item">
+                    <div class="menu-img" style="background: linear-gradient(45deg, #00b894, #55efc4);">
+                        <i class="fas fa-child"></i>
+                        FOR KIDS
+                    </div>
+                    <div class="menu-content">
+                        <h3>Geprek For Kids</h3>
+                        <div class="price"><span class="price-tag">Rp 10.000</span></div>
+                        <p>Pedas ringan khusus anak + nasi & lalapan</p>
+                    </div>
+                </div>
+
+                <!-- SAMBAL HITAM -->
+                <div class="menu-item">
+                    <div class="menu-img" style="background: linear-gradient(45deg, #2d3436, #636e72);">
+                        <i class="fas fa-moon"></i>
+                        SAMBAL HITAM
+                    </div>
+                    <div class="menu-content">
+                        <h3>Geprek Sambal Hitam</h3>
+                        <div class="price"><span class="price-tag">Rp 10.000</span></div>
+                        <p>Sambal hitam kental + ayam crispy nendang</p>
+                    </div>
+                </div>
+
+                <!-- SAMBAL KACANG -->
+                <div class="menu-item">
+                    <div class="menu-img" style="background: linear-gradient(45deg, #fdcb6e, #e17055);">
+                        <i class="fas fa-seedling"></i>
+                        SAMBAL KACANG
+                    </div>
+                    <div class="menu-content">
+                        <h3>Geprek Sambal Kacang</h3>
+                        <div class="price"><span class="price-tag">Rp 10.000</span></div>
+                        <p>Sambal kacang gurih + ayam geprek spesial</p>
+                    </div>
+                </div>
+
+                <!-- SAMBAL BAWANG -->
+                <div class="menu-item">
+                    <div class="menu-img" style="background: linear-gradient(45deg, #a29bfe, #6c5ce7);">
+                        <i class="fas fa-garlic"></i>
+                        SAMBAL BAWANG
+                    </div>
+                    <div class="menu-content">
+                        <h3>Geprek Sambal Bawang</h3>
+                        <div class="price"><span class="price-tag">Rp 10.000</span></div>
+                        <p>Sambal bawang goreng + ayam crispy premium</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>🔥 Pesan Sekarang!</h2>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Buka 06:00 - 21:00</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Jl. Randu Sari, Dramaga, Bogor</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>0878-7028-6781</span>
+                    </div>
+                    <div class="btn-group">
+                        <a href="https://wa.me/6287870286781?text=Halo%20Jagoan%20Ayam%20Geprek%20-%20Saya%20mau%20pesan%20Geprek%20Rp10rb!" class="whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <a href="tel:087870286781" class="tel-btn">
+                            <i class="fas fa-phone"></i> Telepon
+                        </a>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <i class="fas fa-pepper-hot" style="font-size: 120px; opacity: 0.8;"></i>
+                    <h3 style="margin-top: 20px; font-size: 1.8rem;">Rp 10.000 ALL MENU!</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>© 2024 Jagoan Ayam Geprek Dramaga. <i class="fas fa-heart" style="color: #ff6b35;"></i> Harga Rp 10.000 semua menu!</p>
+        </div>
+    </footer>
+
+    <!-- FLOATING WA -->
+    <a href="https://wa.me/6287870286781?text=Halo%20Jagoan%20Ayam%20Geprek%20Dramaga!%20Saya%20mau%20pesan%20geprek%20Rp10rb" class="floating-wa" target="_blank" title="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
